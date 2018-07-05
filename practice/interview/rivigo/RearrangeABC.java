@@ -21,7 +21,23 @@ public class RearrangeABC {
 		
 		int aIndex = -1, bIndex = -1, cIndex = -1;
 		
-		for(int i = 0; i < arr.length && (cIndex == -1 || i < cIndex); i+=1)
+		// initialization of aIndex
+		if(arr[0] == 'a')
+		{
+			aIndex = 0;
+			while(aIndex + 1 < arr.length && arr[aIndex + 1] == 'a')
+				aIndex+=1;
+		}
+		
+		// initialization of cIndex
+		if(arr[arr.length - 1] == 'c')
+		{
+			cIndex = arr.length - 1;
+			while(cIndex - 1 >= 0 && arr[cIndex - 1] == 'c')
+				cIndex-=1;
+		}
+		
+		for(int i = aIndex + 1; i < arr.length && (cIndex == -1 || i < cIndex); i+=1)
 		{
 			char currentChar = arr[i];
 			
@@ -80,6 +96,7 @@ public class RearrangeABC {
 		System.out.println("acbababab" + "\t" + rearrageABC("acbababab"));
 		System.out.println("bcaabcbabacca" + "\t" + rearrageABC("bcaabcbabacca"));
 		System.out.println("abbac" + "\t" + rearrageABC("abbac"));
+		System.out.println("cbc" + "\t" + rearrageABC("cbc"));
 	}
 	
 }
