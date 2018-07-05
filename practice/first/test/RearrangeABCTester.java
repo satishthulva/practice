@@ -1,4 +1,3 @@
-package practice.interview.rivigo.test;
 
 import java.util.HashSet;
 import java.util.Random;

@@ -1,2 +1,2 @@
-# interview_questions
-interview questions
+# coding practice
+coding practice

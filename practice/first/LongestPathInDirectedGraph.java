@@ -1,4 +1,3 @@
-package practice.interview.rivigo;
 
 import java.util.ArrayList;
 import java.util.HashMap;

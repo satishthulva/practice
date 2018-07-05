@@ -1,4 +1,3 @@
-package practice.interview.rivigo;
 
 /**
  * Let us define a system where there are N buckets initially. Each bucket has certain number of balls in it.
