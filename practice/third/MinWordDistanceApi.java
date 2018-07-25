@@ -25,7 +25,72 @@
  */
 public class MinWordDistanceApi {
 
+	/**
+	 * You are given two sorted arrays.
+	 * Find minimum distance between any pair of elements such that one element is from array one and another is from array two
+	 * @param sortedArrOne
+	 * @param sortedArrTwo
+	 * @return
+	 */
+	private static int getMinDistance(int[] sortedArrOne, int[] sortedArrTwo) {
+		int indexOfArrOne = 0, indexOfArrTwo = 0;
+		
+		boolean isElementFromOne = sortedArrOne[0] < sortedArrTwo[0] ? true : false;
+		int currentElem = isElementFromOne ? sortedArrOne[0] : sortedArrTwo[0];
+		
+		if(isElementFromOne)
+			indexOfArrOne = 1;
+		else
+			indexOfArrTwo = 1;
+		
+		int curMinDistance = Integer.MAX_VALUE;
+		
+		while(indexOfArrOne < sortedArrOne.length && indexOfArrTwo < sortedArrTwo.length) {
+			int nextElem = sortedArrOne[indexOfArrOne] < sortedArrTwo[indexOfArrTwo] ? sortedArrOne[indexOfArrOne] : sortedArrTwo[indexOfArrTwo];
+			boolean isNextElemFromOne = sortedArrOne[indexOfArrOne] < sortedArrTwo[indexOfArrTwo] ? true : false;
+			
+			if(isElementFromOne != isNextElemFromOne) {
+				int distance = currentElem > nextElem ? currentElem - nextElem : nextElem - currentElem;
+				if(curMinDistance > distance)
+					curMinDistance = distance;
+			}
+			
+			currentElem = nextElem;
+			isElementFromOne = isNextElemFromOne;
+			
+			if(isNextElemFromOne)
+				indexOfArrOne+=1;
+			else
+				indexOfArrTwo+=1;
+		}
+		
+		if(indexOfArrOne < sortedArrOne.length && !isElementFromOne) {
+			int distance = sortedArrOne[indexOfArrOne] - currentElem;
+			if(curMinDistance > distance)
+				curMinDistance = distance;
+		} else if(indexOfArrTwo < sortedArrTwo.length && isElementFromOne) {
+			int distance = sortedArrTwo[indexOfArrTwo] - currentElem;
+			if(curMinDistance > distance)
+				curMinDistance = distance;
+		}
+		
+		return curMinDistance;
+	}
 	
+	public static void main(String[] args) {
+		int[] one = {1, 2, 3};
+		int[] two = {5, 6, 7};
+		System.out.println(getMinDistance(one, two));
+		
+		int[] oneA = {5, 6, 7};
+		int[] twoA = {1, 2, 3};
+		System.out.println(getMinDistance(oneA, twoA));
+		
+		int[] oneB = {10, 31, 51};
+		int[] twoB = {1, 4, 11};
+		System.out.println(getMinDistance(oneB, twoB));
+	}
+		
 	
 	
 }
