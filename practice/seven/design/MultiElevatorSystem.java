@@ -1,4 +1,3 @@
-package practice.interview.rupeek.design;
 /**
  * <pre>
  * Design an elevator system with N elevators for a multi story building with M floors.

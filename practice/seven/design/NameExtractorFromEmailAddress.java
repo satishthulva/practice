@@ -1,4 +1,3 @@
-package practice.interview.rupeek.design;
 /**
  * <pre>
  * Let us say, you need to implement an API which should return the first name and last name

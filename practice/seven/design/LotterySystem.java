@@ -1,4 +1,3 @@
-package practice.interview.rupeek.design;
 /**
  * <pre>
  * Design a lottery system with the following information given.

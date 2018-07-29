@@ -1,4 +1,3 @@
-package practice.interview.rupeek;
 
 /**
  * <pre>
